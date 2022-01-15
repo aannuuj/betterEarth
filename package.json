@@ -1,0 +1,30 @@
+{
+  "name": "betterearth",
+  "version": "1.0.0",
+  "description": "Carbon Tracking and Offsetting for FMCG Product",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aannuuj/betterEarth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aannuuj/betterEarth/issues"
+  },
+  "homepage": "https://github.com/aannuuj/betterEarth#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "formidable": "^2.0.1",
+    "mongoose": "^6.1.6"
+  },
+  "devDependencies": {
+    "dotenv": "^12.0.3",
+    "nodemon": "^2.0.15"
+  }
+}
