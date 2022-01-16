@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 
 /**
  * @param {string} user_id - user id
+ * @param {string} photo - user image url
  */
 router.post("/", async (req, res, next) => {
   const body = req.body;
@@ -27,6 +28,9 @@ router.post("/", async (req, res, next) => {
         _id: mongoose.Types.ObjectId(),
         created_at: Date.now(),
         user_id: body.user_id,
+        photo: body.photo,
+        name: body.name,
+        email: body.email,
       });
       await newUser.save();
       const token = createJwtToken(newUser);
