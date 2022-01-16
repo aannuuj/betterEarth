@@ -6,6 +6,7 @@ require("dotenv").config();
 const port = process.env.PORT || 3000;
 const uploadRoute = require("./api/routes/upload");
 const loginRoute = require("./api/routes/login");
+const activityRoute = require("./api/routes/activity");
 const apiError = require("./api/errorHandler/apiErrors");
 const apiErrorHandler = require("./api/errorHandler/apiErrorHandler");
 
@@ -30,6 +31,7 @@ app.use(bodyParser.json());
 
 app.use("/upload", uploadRoute);
 app.use("/auth", loginRoute);
+app.use("/activity", activityRoute);
 
 app.use((req, res, next) => {
   next(apiError.notFound("Route not Found"));

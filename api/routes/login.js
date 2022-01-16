@@ -9,7 +9,6 @@ const mongoose = require("mongoose");
  */
 router.post("/", async (req, res, next) => {
   const body = req.body;
-  console.log(body);
   if (!body.user_id) {
     next(apiError.badRequest("Uid is required"));
     return;
@@ -19,7 +18,7 @@ router.post("/", async (req, res, next) => {
     if (user) {
       const token = createJwtToken(user);
       res.status(200).json({
-        user: user,
+        data: user,
         token,
       });
       return;
@@ -32,7 +31,7 @@ router.post("/", async (req, res, next) => {
       await newUser.save();
       const token = createJwtToken(newUser);
       res.status(200).json({
-        user: newUser,
+        data: newUser,
         token,
       });
       return;
@@ -44,3 +43,4 @@ router.post("/", async (req, res, next) => {
 });
 
 module.exports = router;
+//eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2MWU0NDgxYzA4MmMzOGIyMDcyZWIzMGQiLCJ1c2VyX2lkIjoiMTAiLCJjcmVhdGVkX2F0IjoxNjQyMzUwNjIwODUyLCJfX3YiOjB9.HYEMWC3Z55g8MRIGDoA4eC9GAR3ma1EasliGmw6Ya98
