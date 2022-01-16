@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const port = process.env.PORT || 3000;
 const uploadRoute = require("./api/routes/upload");
+const loginRoute = require("./api/routes/login");
 const apiError = require("./api/errorHandler/apiErrors");
 const apiErrorHandler = require("./api/errorHandler/apiErrorHandler");
 
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/upload", uploadRoute);
+app.use("/auth", loginRoute);
 
 app.use((req, res, next) => {
   next(apiError.notFound("Route not Found"));
